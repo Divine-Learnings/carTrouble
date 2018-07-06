@@ -117,6 +117,7 @@ void shop(){
 }
 void dscd(){
   background(0, 0, 0);
+  positionofcar = 150;
 }
 void ds0(){
   scene=0;
@@ -638,24 +639,6 @@ void draw(){
     //if's
     
     //color choice
-    if(mousePressed){
-      if(money>=100&&mouseX>70&&mouseY>65&&mouseX<356&&mouseY<116&&scene==11){
-        r1=145;
-        g1=0;
-        b1=0;
-        money-=100;
-      }if(money>=100&&mouseX>69&&mouseY>135&&mouseX<356&&mouseY<166&&scene==11){
-        r1=26;
-        g1=21;
-        b1=21;
-        money-=100;
-      }if(money>=100&&mouseX>69&&mouseY>210&&mouseX<356&&mouseY<260&&scene==11){
-        r1=10;
-        g1=95;
-        b1=152;
-        money-=100;
-      }};
-      
       ///
       if(cn==0){
         cars=0;
@@ -698,20 +681,30 @@ void draw(){
       
       if(tr>=10){money=money+350;
         tr=0;
-      }
-void = mouseClicked() {   
-        if(money>=10000&&mouseX>55&&mouseY>85&&mouseY<211&&mouseX<401){
-          
-          money-=10000;
-          cn = 1;
-          
-        }
-      }    }
+      }  
+  }
     void mouseClicked() {   
-        if(money>=10000&&mouseX>55&&mouseY>85&&mouseY<211&&mouseX<401){
+        if(money>=10000&&mouseX>55&&mouseY>85&&mouseY<211&&mouseX<401&&scene==10000&&cars==0){
           
           money-=10000;
           cn = 1;
           
         }
+              if(money>=100&&mouseX>70&&mouseY>65&&mouseX<356&&mouseY<116&&scene==11){
+        r1=145;
+        g1=0;
+        b1=0;
+        money-=100;
+      }if(money>=100&&mouseX>69&&mouseY>135&&mouseX<356&&mouseY<166&&scene==11){
+        r1=26;
+        g1=21;
+        b1=21;
+        money-=100;
+      }if(money>=100&&mouseX>69&&mouseY>210&&mouseX<356&&mouseY<260&&scene==11){
+        r1=10;
+        g1=95;
+        b1=152;
+        money-=100;
+      }
+      
       }

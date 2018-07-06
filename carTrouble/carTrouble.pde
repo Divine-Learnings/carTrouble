@@ -517,22 +517,15 @@ void draw(){
       fill(255, 255, 255);
       text("press to buy 'sport ts20' for $10,000",60,120);
       text("for $10,000",55,165);
-      if(mousePressed){         
-        if(money>=10000&&mouseX>55&&mouseY>85&&mouseY<211&&mouseX<401){
-          
-          money-=10000;
-          cn = 1;
-          
-        }
-      }
+           
       if(keyCode==68){
         scene=2;
         
         
-        
+      }
       }
       
-    }
+    
     
     
     //
@@ -706,4 +699,19 @@ void draw(){
       if(tr>=10){money=money+350;
         tr=0;
       }
-    }
+void = mouseClicked() {   
+        if(money>=10000&&mouseX>55&&mouseY>85&&mouseY<211&&mouseX<401){
+          
+          money-=10000;
+          cn = 1;
+          
+        }
+      }    }
+    void mouseClicked() {   
+        if(money>=10000&&mouseX>55&&mouseY>85&&mouseY<211&&mouseX<401){
+          
+          money-=10000;
+          cn = 1;
+          
+        }
+      }

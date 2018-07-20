@@ -1,18 +1,37 @@
+PImage img;
+PImage img2;
 void setup(){
   size(400, 400);
+   img = loadImage("TreeTall.png");
+img2 = loadImage("TreeTall.png");
 }
+//imported code(tank)
+
+int y = 1;
+int i = 1;
+float z =1;
+float z1 = 1;
+float z2 = 1;
+float z3 = 1;
+int c = 1;
+//start button
+
+int sbx = 425;
+////name says it all
 int positionofcar = 52;
 //backdrop
 int scene=0;
-//the cash!!!
+//the cash!!!and stuff
 int money=1000000;
+float secspd=0.018;
 //cash bonus
 int tr=0;
 //random stuff i dont need to worry about
 int ab = 85;
 int ay = -5;
 //sec
-int s=0;
+float s=0;
+float sec=0;
 //the diiferent cars
 int cars=0;
 int cn = 0;
@@ -23,6 +42,88 @@ int b = 0;
 int r1 =48;
 int g1 =42;
 int b1 =42;
+int r2=176 ;
+int g2=153;
+int b2=0;
+//speedControl
+float dist;
+float t=0;
+int fsp=8;
+int bsp=-3;
+void drim(){
+
+  image(img, 75, 185,100, height/2);
+};
+void drim2(){
+ image(img, 225, 185,100, height/2);
+};
+void tank(){
+  i = 1;
+    c = 1;
+ y = positionofcar;   
+ z = positionofcar;
+ z1 = positionofcar;
+ z2 =positionofcar;
+ z3 = positionofcar;
+
+//tracts
+rect(positionofcar,200,100,5);
+fill(64, 57, 57);
+quad(positionofcar+16, 216,positionofcar+87, 217, positionofcar+101, 203, positionofcar+1, 204);
+fill(18, 16, 16);
+ellipse(positionofcar+25,211,12,12);
+ellipse(positionofcar+37,211,12,12);
+ellipse(positionofcar+50,211,12,12);
+ellipse(positionofcar+63,211,12,12);
+ellipse(positionofcar+76,211,12,12);
+fill(255, 0, 0);
+ellipse(positionofcar+5,194,20,15);
+fill(19,64,4);
+//barrel
+rect(positionofcar+83,180,70,5);
+fill(43, 29, 7);
+fill(22,36,1);
+rect(positionofcar+130,180,54,5);
+rect(positionofcar+179,175,5,5);
+//cockpit
+rect(positionofcar+13,175,70,25);
+//design
+fill(240, 62, 12);
+ellipse(positionofcar+45,188,20,20);
+fill(255, 0, 0);
+rect(positionofcar+45,178,2,20);
+rect(positionofcar+25,186,40,2);
+fill(19,64,4);
+//top
+rect(positionofcar+25,170,40,5);
+//main gun bullet
+fill(87, 75, 87);
+rect(y+130,180,20,5);
+//top gun
+rect(positionofcar+64,165,25,10);
+fill(255, 0, 0);
+rect(positionofcar+89,167,25,5);
+ellipse(positionofcar+74,170,5,5);
+rect(positionofcar+69,160,2,5);
+fill(97, 24, 11);
+rect(positionofcar+69,175,5,2);
+rect(positionofcar+69,181,5,2);
+rect(positionofcar+69,187,5,2);
+rect(positionofcar+69,193,5,2);
+rect(positionofcar+69,199,5,2);
+fill(175, 181, 6);
+rect(positionofcar+69,178,5,2);
+rect(positionofcar+69,184,5,2);
+rect(positionofcar+69,190,5,2);
+rect(positionofcar+69,196,5,2);
+//top gun bullets
+fill(69, 62, 62);
+ellipse(z+93,170,5,5);
+ellipse(z1+99,170,5,5);
+ellipse(z2+105,170,5,5);
+ellipse(z3+110,170,5,5);
+
+};
 void car(){
   //sedan
   noStroke(); 
@@ -52,7 +153,9 @@ void car(){
   
   fill(r,g,b);
   rect(positionofcar+5,320,5,10);
-  
+  //headlight
+  fill(r2,g2,b2);
+  rect(positionofcar+120,320,5,12);
 }
 void car1(){
   
@@ -93,11 +196,14 @@ void car1(){
   //brakelight
   
   fill(r,g,b); rect(positionofcar+5,334,5,10);
-  
+  //headlight
+  fill(r2,g2,b2);
+  rect(positionofcar+117,334,5,5);
 }
 void shop(){
   background(0, 0, 0);
   cars=1;
+  positionofcar=150;
   fill(145, 0, 0);
   rect(70,65,285,50,5);
   fill(26, 21, 21);
@@ -113,31 +219,33 @@ void shop(){
   text("color:",125,40);
   fill(112, 16, 16);
   textSize(25);
-  text("press down arrow to exit",10,323);
+  text("press down arrow to exit",10,300);
 }
 void dscd(){
   background(0, 0, 0);
   positionofcar = 150;
 }
+void strt(){
+textSize(35);
+  tint(0,0,0,0);
+  text("START",135,80);
+}
 void ds0(){
   scene=0;
   fill(255, 0, 0);
   background(108, 204, 245);
+  drim();
+  drim2();
   int n = 0;
   fill(92, 90, 90);
   while(n<440){
     rect(n,330,13,33);
-    n = n+36;
+    n = n+36;}
     
-  } 
   rect(0,330,400,6);
   fill(153, 86, 86);
   rect(0,0,400,192);
-  fill(75, 222, 22);
-  rect(90,45,190,45,10);
-  fill(0, 0, 0);
-  textSize(35);
-  text("START",135,80);
+
 }
 void ds1(){
   scene=1;
@@ -166,6 +274,8 @@ void ds2(){
 void ds3(){
   scene=3;
   background(11, 138, 181);
+  drim();
+  drim2();
   int n = 0;
   fill(92, 90, 90);
   while(n<440){
@@ -175,7 +285,9 @@ void ds3(){
   rect(0,330,400,6); 
 }
 void ds4(){
-  background(9, 80, 110); 
+  background(9, 80, 110);
+  drim();
+  drim2();
   int n = 0;
   fill(92, 90, 90);
   while(n<440){
@@ -186,6 +298,8 @@ void ds4(){
 }
 void ds5(){
   background(3, 34, 48);
+  drim();
+  drim2();
   scene=5;
   int n = 0;
   fill(92, 90, 90);
@@ -197,6 +311,8 @@ void ds5(){
 }
 void ds6(){
   background(4, 59, 82);
+  drim();
+  drim2();
   scene=6;
   int n = 0;
   fill(92, 90, 90);
@@ -208,6 +324,8 @@ void ds6(){
 }
 void ds7(){
   background(5, 82, 115);
+  drim();
+  drim2();
   scene=7;
   int n = 0;
   fill(92, 90, 90);
@@ -219,6 +337,8 @@ void ds7(){
 }
 void ds8(){
   background(8, 107, 150);
+  drim();
+  drim2();
   scene=8;
   int n = 0;
   fill(92, 90, 90);
@@ -230,6 +350,8 @@ void ds8(){
 }
 void ds9(){
   background(12, 144, 201);
+  drim();
+  drim2();
   scene=9;
   int n = 0;
   fill(92, 90, 90);
@@ -241,6 +363,8 @@ void ds9(){
 }
 void ds10(){
   background(5, 176, 250);
+  drim();
+  drim2();
   scene=10;
   int n = 0;
   fill(92, 90, 90);
@@ -250,29 +374,68 @@ void ds10(){
   } 
   rect(0,330,400,6);
 }
+void sbt (){
+ 
+
+};
 void draw(){
-  
-  //seconds calc/money earning
-  if(keyPressed == true){
-    s+=0.1;}
-    
-    
-    
-    if (s>=1&&keyPressed){
-      
-      s-=1;
-      money+=1;
-    }
+       //seconds calc/money earning
+    if(keyPressed){
+    s+=secspd;}
+            
+       
+        
+        if (s>=1&&keyPressed){
+          
+            s-=1;
+              money+=1;
+        }
     
     
     ///////
     
+    //axcell
+    if(keyPressed){
+    sec+=0.015;
+    }
+    else if(keyPressed==false){
+    sec=0;}
+    
+    
+    ////
     //backdrop switching
     
     
     if (scene==0){
-      ds0();
       
+      float ti = 0;
+      int wl = 0;
+      ds0();
+      if(sbx>-10){
+        sbx-=5;
+      }
+      
+      
+      
+      fill(75, 222, 22);
+      
+        while( wl<100){
+        ti += 0.015;
+        wl +=1;
+        };
+        dist = 8*((2*pow(ti, 3/2))/3);
+        if(dist<8){
+        positionofcar+=dist;
+        delay(10);
+        }else{
+        positionofcar+=8;
+        delay(10);
+        }
+      rect(sbx,45,280,45,10);
+      
+    fill(153, 86, 86);
+    
+  strt();
       if(mousePressed&&mouseY>45&&mouseY<90&&mouseX>95&&mouseX<285){positionofcar=0;
         
         
@@ -652,6 +815,7 @@ void draw(){
       if(cars==2){
         car1();
       }
+      
       if(keyPressed && (keyCode == RIGHT|| keyCode == LEFT)){
         r =171;
         g=9;
@@ -662,17 +826,96 @@ void draw(){
         g=0;
         b=0;
       }
+       if(keyCode==76){
+        r2 =255;
+        g2=221;
+      
+      }
+      if(keyCode==75){
+        r2 =176;
+        g2=153;
+      
+      }
+      /// axel
+      
       
       if(keyPressed && keyCode == RIGHT){
-        positionofcar=positionofcar+5;
-        
+        t += 0.015;
+        dist = fsp*((2*pow(t, 3/2))/3);
+        if(dist<8){
+        positionofcar+=dist;
+        }else{
+        positionofcar+=fsp;
+        }
         
       }
       if(keyPressed && keyCode == LEFT){
-        positionofcar=positionofcar-3;
         
+        t += 0.015;
+        dist = -3*((2*pow(t, 3/2))/3);
+        if(dist>bsp){
+        positionofcar+=dist;
+        }else{
+        positionofcar+=bsp;
+        }
       }
-      
+      if(!keyPressed){
+       t=0;
+       dist = 0;
+      }
+      if(mousePressed){
+    y = y+3;
+    i = i + 1;
+    }else if (i>1){
+        y = y+3;
+        }
+        else if (i == 1 && !mousePressed){
+    y = positionofcar;
+}
+if (keyPressed && keyCode == 69){
+  z = z+20.5;
+  c = c + 1;
+}else if (c>1){
+    z = z + 20.5;
+    c = c + 1;
+    if (c > 10){
+        z1 = z1 + 15.5;
+        c = c + 1;
+    }
+    }else if (c>10){
+    z1 = z1 + 15.5;
+    c = c + 1;
+}
+    if ( c > 40){
+        z2 = z2 + 10.5;
+        c = c + 1;
+    }else if ( c > 20){
+    z2 = z2 +10.5;
+    c = c + 1;
+}if ( c > 100){
+    z3 = z3 + 8.5;
+       c = c + 1;
+    }else if (c>100){
+    z3 = z3 + 7.5;
+    }
+    else {
+    z = positionofcar;
+    z1 = positionofcar;
+    z2 = positionofcar;
+    z3 = positionofcar;
+}
+//x = x+0.5;
+//y = y+0.5;
+
+if (keyPressed && keyCode == 82){
+    i = 1;
+    c = 1;
+ y = positionofcar;   
+ z = positionofcar;
+ z1 = positionofcar;
+ z2 =positionofcar;
+ z3 = positionofcar;
+}
       //roads
       fill(120, 70, 19);
       rect(0,357,400,45);
@@ -688,7 +931,9 @@ void draw(){
           
           money-=10000;
           cn = 1;
-          
+          secspd=0.065;
+          fsp = 12;
+          bsp=-5;
         }
               if(money>=100&&mouseX>70&&mouseY>65&&mouseX<356&&mouseY<116&&scene==11){
         r1=145;

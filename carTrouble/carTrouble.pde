@@ -393,6 +393,13 @@ void draw(){
     
     
     ///////
+    //rando
+    
+    
+    
+    
+    
+    ////
     
     //axcell
     if(keyPressed){
@@ -797,25 +804,32 @@ void draw(){
         
       }
       
-    } 
+    } //end of backdrop switching
+    
+     if(keyPressed&&keyCode==1){
+      cn=5;
+    }
     
     //if's
-    
-    //color choice
-      ///
-      if(cn==0){
+    if(cn==0){
         cars=0;
-      }
+      }else if(cn==1){
+        cars=2;
+      }else if(cn==5){
+       cars=5;
+     }
       if(cars==0){
         car();
-      }
-      if(cn==1){
-        cars=2;
-      }
-      if(cars==2){
+      }else if(cars==2){
         car1();
+      }else if(cars==5){
+        tank();
       }
+
+    //color choice
+      ///
       
+     
       if(keyPressed && (keyCode == RIGHT|| keyCode == LEFT)){
         r =171;
         g=9;
